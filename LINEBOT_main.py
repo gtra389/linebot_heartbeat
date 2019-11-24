@@ -20,8 +20,8 @@ from time import gmtime, strftime
 from datetime import timedelta
 
 app = Flask(__name__)
-LINE_CHANNEL_ACCESS_TOKEN = 'c3gPIFeP9GW9c9QdRvkZMyJ1knIOgiotqiCZNIMpb+hPyZU4RJGUj5tKwr2NUg5OMnIiGqMeiekgQYUMhNeFLX2fcNI+syakjA8hUABuq6tNSMwG75vOQg8kydz2lBoj4S42Mfq7St+/TpyAccG1QQdB04t89/1O/w1cDnyilFU='
-LINE_CHANNEL_SECRET = 'dc5c9c794a63c1e74ac414ddbe74de2e'
+LINE_CHANNEL_ACCESS_TOKEN = 'my_access'
+LINE_CHANNEL_SECRET = 'my_secret'
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler      = WebhookHandler(LINE_CHANNEL_SECRET)
@@ -104,7 +104,7 @@ def handle_postback(event):
             line_bot_api.push_message(_id,TextSendMessage(text = queryMesg))
 
 def creatURL(idN, t):
-    string = "http://ec2-54-175-179-28.compute-1.amazonaws.com/get_thinktron_data.php?device_id={}&year_month={}".format(idN,t)
+    string = "http://AWS.php?device_id={}&year_month={}".format(idN,t)
     return string    
 
 def query_data(arg1):
