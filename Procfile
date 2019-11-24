@@ -1,0 +1,1 @@
+web: gunicorn LINEBOT_main:app
